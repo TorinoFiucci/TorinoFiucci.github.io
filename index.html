@@ -605,10 +605,18 @@
         }
         
         .text-vibrant {
+            color: var(--secondary-accent); /* Fallback color */
             background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        
+        /* Fallback for browsers that don't support background-clip */
+        @supports not (background-clip: text) {
+            .text-vibrant {
+                color: var(--secondary-accent);
+            }
         }
         
         /* Code/Tech Elements */
@@ -982,13 +990,12 @@
             observer.observe(section);
         });
         
-        // Parallax Scrolling Effect
+        // Parallax Scrolling Effect with cached elements
         let ticking = false;
+        let hero, nav, cards;
         
         function updateParallax() {
             const scrolled = window.pageYOffset;
-            const hero = document.getElementById('hero');
-            const sections = document.querySelectorAll('section');
             
             // Parallax effect for hero section
             if (hero) {
@@ -996,19 +1003,20 @@
                 hero.style.opacity = Math.max(1 - scrolled / 600, 0);
             }
             
-            // Dynamic parallax for cards
-            document.querySelectorAll('.music-card, .project-card').forEach((card, index) => {
-                const rect = card.getBoundingClientRect();
-                const scrollPercent = (window.innerHeight - rect.top) / window.innerHeight;
-                
-                if (scrollPercent > 0 && scrollPercent < 1) {
-                    const offset = (scrollPercent - 0.5) * 20;
-                    card.style.transform = `translateY(${-offset}px)`;
-                }
-            });
+            // Dynamic parallax for cards (simplified for performance)
+            if (cards && scrolled > 200) {
+                cards.forEach((card) => {
+                    const rect = card.getBoundingClientRect();
+                    const scrollPercent = (window.innerHeight - rect.top) / window.innerHeight;
+                    
+                    if (scrollPercent > 0 && scrollPercent < 1) {
+                        const offset = (scrollPercent - 0.5) * 20;
+                        card.style.transform = `translateY(${-offset}px)`;
+                    }
+                });
+            }
             
             // Update navigation background opacity based on scroll
-            const nav = document.querySelector('nav');
             if (nav) {
                 const navOpacity = Math.min(scrolled / 100, 1);
                 nav.style.background = `rgba(10, 14, 39, ${0.8 + navOpacity * 0.2})`;
@@ -1026,34 +1034,32 @@
         
         window.addEventListener('scroll', requestTick, { passive: true });
         
-        // Dynamic Text Color on Scroll
-        function updateTextColors() {
-            const sections = document.querySelectorAll('section');
-            const windowHeight = window.innerHeight;
-            
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                const inView = rect.top < windowHeight * 0.75 && rect.bottom > windowHeight * 0.25;
-                
-                if (inView) {
-                    const headings = section.querySelectorAll('h2, h3');
-                    headings.forEach(heading => {
-                        const progress = (windowHeight - rect.top) / windowHeight;
-                        
-                        if (progress > 0.3 && progress < 0.9) {
-                            heading.classList.add('text-vibrant');
-                        }
-                    });
+        // Dynamic Text Color on Scroll with Intersection Observer
+        const textColorObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const headings = entry.target.querySelectorAll('h2, h3');
+                if (entry.isIntersecting) {
+                    headings.forEach(heading => heading.classList.add('text-vibrant'));
+                } else {
+                    headings.forEach(heading => heading.classList.remove('text-vibrant'));
                 }
             });
-        }
+        }, {
+            threshold: [0.3, 0.7],
+            rootMargin: '-10% 0px'
+        });
         
-        window.addEventListener('scroll', updateTextColors, { passive: true });
+        // Observe sections for text color changes
+        document.querySelectorAll('section').forEach(section => {
+            textColorObserver.observe(section);
+        });
         
-        // Smooth mouse movement parallax with throttling
+        // Smooth mouse movement parallax with cached element and throttling
         let mouseMoveTicking = false;
+        let profilePhoto;
+        
         document.addEventListener('mousemove', (e) => {
-            if (!mouseMoveTicking) {
+            if (!mouseMoveTicking && profilePhoto) {
                 window.requestAnimationFrame(() => {
                     const { clientX, clientY } = e;
                     const centerX = window.innerWidth / 2;
@@ -1062,10 +1068,7 @@
                     const moveX = (clientX - centerX) / 50;
                     const moveY = (clientY - centerY) / 50;
                     
-                    const profilePhoto = document.querySelector('.profile-photo');
-                    if (profilePhoto) {
-                        profilePhoto.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                    }
+                    profilePhoto.style.transform = `translate(${moveX}px, ${moveY}px)`;
                     mouseMoveTicking = false;
                 });
                 mouseMoveTicking = true;
@@ -1089,9 +1092,14 @@
         
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
+            // Cache DOM elements for performance
+            hero = document.getElementById('hero');
+            nav = document.querySelector('nav');
+            cards = document.querySelectorAll('.music-card, .project-card');
+            profilePhoto = document.querySelector('.profile-photo');
+            
             updateLanguage();
             updateParallax();
-            updateTextColors();
             
             // Delay code effect
             setTimeout(createCodeEffect, 500);
