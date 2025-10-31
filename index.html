@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Levente Jordán | Personal Website</title>
     
-    <!-- Google Fonts - Roboto for modern, Google-like look -->
+    <!-- Google Fonts - Inter for modern, cutting-edge look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -37,7 +37,7 @@
         }
         
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inter', sans-serif;
             color: var(--dark-text);
             background-color: var(--neutral-light);
             line-height: 1.6;
@@ -100,9 +100,14 @@
             color: var(--white);
         }
         
-        /* Section Styles */
+        /* Section Styles - FULL WIDTH BACKGROUNDS */
         section {
             padding: 100px 20px;
+            width: 100%;
+        }
+        
+        /* Container for content within sections */
+        .section-content {
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -113,18 +118,20 @@
         
         h1 {
             font-size: 3.5rem;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 20px;
             color: var(--dark-text);
+            letter-spacing: -0.02em;
         }
         
         h2 {
             font-size: 2.5rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 30px;
             color: var(--dark-text);
             position: relative;
             display: inline-block;
+            letter-spacing: -0.01em;
         }
         
         h2::after {
@@ -143,6 +150,7 @@
             font-weight: 600;
             margin-bottom: 15px;
             color: var(--dark-text);
+            letter-spacing: -0.01em;
         }
         
         p {
@@ -457,60 +465,64 @@
     
     <!-- About Section -->
     <section id="about">
-        <h2 data-en="About Me" data-hu="Rólam">About Me</h2>
-        <div class="about-content">
-            <div>
-                <p data-en="Hello! I'm Levente Jordán (Jordán Levente in Hungarian), an Electrical Engineering BSc student with a passion for technology and music." 
-                   data-hu="Szia! Jordán Levente vagyok, villamosmérnök BSc hallgató, aki szenvedélyesen foglalkozik technológiával és zenével.">
-                    Hello! I'm Levente Jordán (Jordán Levente in Hungarian), an Electrical Engineering BSc student with a passion for technology and music.
-                </p>
-                <p data-en="I balance my technical studies with creative pursuits, playing in a band and producing music. I'm constantly exploring the intersection of engineering and art." 
-                   data-hu="Tanulmányaim mellett kreatív tevékenységekkel is foglalkozom, zenélek egy bandában és zenét producálok. Folyamatosan kutatom a mérnöki tudományok és a művészet metszéspontját.">
-                    I balance my technical studies with creative pursuits, playing in a band and producing music. I'm constantly exploring the intersection of engineering and art.
-                </p>
-                <p data-en="[Add more about your background, interests, and goals here]" 
-                   data-hu="[Itt adj hozzá többet a hátteredről, érdeklődési köreidről és céljaidról]">
-                    [Add more about your background, interests, and goals here]
-                </p>
+        <div class="section-content">
+            <h2 data-en="About Me" data-hu="Rólam">About Me</h2>
+            <div class="about-content">
+                <div>
+                    <p data-en="Hello! I'm Levente Jordán (Jordán Levente in Hungarian), an Electrical Engineering BSc student with a passion for technology and music." 
+                       data-hu="Szia! Jordán Levente vagyok, villamosmérnök BSc hallgató, aki szenvedélyesen foglalkozik technológiával és zenével.">
+                        Hello! I'm Levente Jordán (Jordán Levente in Hungarian), an Electrical Engineering BSc student with a passion for technology and music.
+                    </p>
+                    <p data-en="I balance my technical studies with creative pursuits, playing in a band and producing music. I'm constantly exploring the intersection of engineering and art." 
+                       data-hu="Tanulmányaim mellett kreatív tevékenységekkel is foglalkozom, zenélek egy bandában és zenét producálok. Folyamatosan kutatom a mérnöki tudományok és a művészet metszéspontját.">
+                        I balance my technical studies with creative pursuits, playing in a band and producing music. I'm constantly exploring the intersection of engineering and art.
+                    </p>
+                    <p data-en="[Add more about your background, interests, and goals here]" 
+                       data-hu="[Itt adj hozzá többet a hátteredről, érdeklődési köreidről és céljaidról]">
+                        [Add more about your background, interests, and goals here]
+                    </p>
+                </div>
             </div>
         </div>
     </section>
     
     <!-- Music Section -->
     <section id="music">
-        <h2 data-en="Music" data-hu="Zene">Music</h2>
-        <div class="music-grid">
-            <!-- Máklikőr Card -->
-            <div class="music-card">
-                <h3>Máklikőr</h3>
-                <p data-en="[Add description about the band, your role, and the music style here]" 
-                   data-hu="[Itt adj hozzá leírást a bandáról, a szerepedről és a zenei stílusról]">
-                    [Add description about the band, your role, and the music style here]
-                </p>
-                <div class="music-links">
-                    <a href="https://www.instagram.com/maklikor/" target="_blank" class="music-link">
-                        <i class="fab fa-instagram"></i> Instagram
-                    </a>
-                    <a href="https://open.spotify.com/artist/1mEClPszmbqTkgnBgQ57Ui" target="_blank" class="music-link">
-                        <i class="fab fa-spotify"></i> Spotify
-                    </a>
-                    <a href="https://linktr.ee/maklikor" target="_blank" class="music-link">
-                        <i class="fas fa-link"></i> Linktree
-                    </a>
+        <div class="section-content">
+            <h2 data-en="Music" data-hu="Zene">Music</h2>
+            <div class="music-grid">
+                <!-- Máklikőr Card -->
+                <div class="music-card">
+                    <h3>Máklikőr</h3>
+                    <p data-en="[Add description about the band, your role, and the music style here]" 
+                       data-hu="[Itt adj hozzá leírást a bandáról, a szerepedről és a zenei stílusról]">
+                        [Add description about the band, your role, and the music style here]
+                    </p>
+                    <div class="music-links">
+                        <a href="https://www.instagram.com/maklikor/" target="_blank" class="music-link">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://open.spotify.com/artist/1mEClPszmbqTkgnBgQ57Ui" target="_blank" class="music-link">
+                            <i class="fab fa-spotify"></i> Spotify
+                        </a>
+                        <a href="https://linktr.ee/maklikor" target="_blank" class="music-link">
+                            <i class="fas fa-link"></i> Linktree
+                        </a>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Production Work Card -->
-            <div class="music-card">
-                <h3 data-en="Production Work" data-hu="Produkciós Munkák">Production Work</h3>
-                <p data-en="Production work for Bogi Kalasz. [Add details about your production work, techniques, and collaboration here]" 
-                   data-hu="Produkciós munka Bogi Kalasznak. [Itt adj hozzá részleteket a produkciós munkádról, technikáidról és az együttműködésről]">
-                    Production work for Bogi Kalasz. [Add details about your production work, techniques, and collaboration here]
-                </p>
-                <div class="music-links">
-                    <a href="https://open.spotify.com/artist/01En49u7AQRT5E4JjIny0G" target="_blank" class="music-link">
-                        <i class="fab fa-spotify"></i> Bogi Kalasz
-                    </a>
+                
+                <!-- Production Work Card -->
+                <div class="music-card">
+                    <h3 data-en="Production Work" data-hu="Produkciós Munkák">Production Work</h3>
+                    <p data-en="Production work for Bogi Kalasz. [Add details about your production work, techniques, and collaboration here]" 
+                       data-hu="Produkciós munka Bogi Kalasznak. [Itt adj hozzá részleteket a produkciós munkádról, technikáidról és az együttműködésről]">
+                        Production work for Bogi Kalasz. [Add details about your production work, techniques, and collaboration here]
+                    </p>
+                    <div class="music-links">
+                        <a href="https://open.spotify.com/artist/01En49u7AQRT5E4JjIny0G" target="_blank" class="music-link">
+                            <i class="fab fa-spotify"></i> Bogi Kalasz
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -518,83 +530,87 @@
     
     <!-- Projects Section -->
     <section id="projects">
-        <h2 data-en="Projects" data-hu="Projektek">Projects</h2>
-        <div class="projects-grid">
-            <!-- Project Card 1 -->
-            <div class="project-card">
-                <h3 data-en="Project 1" data-hu="1. Projekt">Project 1</h3>
-                <p data-en="[Description of your engineering project. Include technologies used and outcomes]" 
-                   data-hu="[A mérnöki projekted leírása. Tartalmazza a felhasznált technológiákat és eredményeket]">
-                    [Description of your engineering project. Include technologies used and outcomes]
-                </p>
-            </div>
-            
-            <!-- Project Card 2 -->
-            <div class="project-card">
-                <h3 data-en="Project 2" data-hu="2. Projekt">Project 2</h3>
-                <p data-en="[Description of your engineering project. Include technologies used and outcomes]" 
-                   data-hu="[A mérnöki projekted leírása. Tartalmazza a felhasznált technológiákat és eredményeket]">
-                    [Description of your engineering project. Include technologies used and outcomes]
-                </p>
-            </div>
-            
-            <!-- Project Card 3 -->
-            <div class="project-card">
-                <h3 data-en="Project 3" data-hu="3. Projekt">Project 3</h3>
-                <p data-en="[Description of your engineering project. Include technologies used and outcomes]" 
-                   data-hu="[A mérnöki projekted leírása. Tartalmazza a felhasznált technológiákat és eredményeket]">
-                    [Description of your engineering project. Include technologies used and outcomes]
-                </p>
-            </div>
-            
-            <!-- Project Card 4 -->
-            <div class="project-card">
-                <h3 data-en="Project 4" data-hu="4. Projekt">Project 4</h3>
-                <p data-en="[Description of your engineering project. Include technologies used and outcomes]" 
-                   data-hu="[A mérnöki projekted leírása. Tartalmazza a felhasznált technológiákat és eredményeket]">
-                    [Description of your engineering project. Include technologies used and outcomes]
-                </p>
+        <div class="section-content">
+            <h2 data-en="Projects" data-hu="Projektek">Projects</h2>
+            <div class="projects-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card">
+                    <h3 data-en="Project 1" data-hu="1. Projekt">Project 1</h3>
+                    <p data-en="[Description of your engineering project. Include technologies used and outcomes]" 
+                       data-hu="[A mérnöki projekted leírása. Tartalmazza a felhasznált technológiákat és eredményeket]">
+                        [Description of your engineering project. Include technologies used and outcomes]
+                    </p>
+                </div>
+                
+                <!-- Project Card 2 -->
+                <div class="project-card">
+                    <h3 data-en="Project 2" data-hu="2. Projekt">Project 2</h3>
+                    <p data-en="[Description of your engineering project. Include technologies used and outcomes]" 
+                       data-hu="[A mérnöki projekted leírása. Tartalmazza a felhasznált technológiákat és eredményeket]">
+                        [Description of your engineering project. Include technologies used and outcomes]
+                    </p>
+                </div>
+                
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <h3 data-en="Project 3" data-hu="3. Projekt">Project 3</h3>
+                    <p data-en="[Description of your engineering project. Include technologies used and outcomes]" 
+                       data-hu="[A mérnöki projekted leírása. Tartalmazza a felhasznált technológiákat és eredményeket]">
+                        [Description of your engineering project. Include technologies used and outcomes]
+                    </p>
+                </div>
+                
+                <!-- Project Card 4 -->
+                <div class="project-card">
+                    <h3 data-en="Project 4" data-hu="4. Projekt">Project 4</h3>
+                    <p data-en="[Description of your engineering project. Include technologies used and outcomes]" 
+                       data-hu="[A mérnöki projekted leírása. Tartalmazza a felhasznált technológiákat és eredményeket]">
+                        [Description of your engineering project. Include technologies used and outcomes]
+                    </p>
+                </div>
             </div>
         </div>
     </section>
     
     <!-- Skills Section -->
     <section id="skills">
-        <h2 data-en="Skills" data-hu="Képességek">Skills</h2>
-        <div class="skills-container">
-            <!-- Technical Skills -->
-            <div class="skill-category">
-                <h3 data-en="Technical Skills" data-hu="Technikai Képességek">Technical Skills</h3>
-                <div class="skills-tags">
-                    <span class="skill-tag">.NET/C#</span>
-                    <span class="skill-tag">C/C++</span>
-                    <span class="skill-tag">MATLAB</span>
-                    <span class="skill-tag">Circuit Design</span>
-                    <span class="skill-tag">Embedded Systems</span>
-                    <span class="skill-tag">Signal Processing</span>
+        <div class="section-content">
+            <h2 data-en="Skills" data-hu="Képességek">Skills</h2>
+            <div class="skills-container">
+                <!-- Technical Skills -->
+                <div class="skill-category">
+                    <h3 data-en="Technical Skills" data-hu="Technikai Képességek">Technical Skills</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">.NET/C#</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">Circuit Design</span>
+                        <span class="skill-tag">Embedded Systems</span>
+                        <span class="skill-tag">Signal Processing</span>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Music & Production Skills -->
-            <div class="skill-category">
-                <h3 data-en="Music & Production" data-hu="Zene & Produkció">Music & Production</h3>
-                <div class="skills-tags">
-                    <span class="skill-tag">Audio Engineering</span>
-                    <span class="skill-tag">Music Production</span>
-                    <span class="skill-tag">Mixing</span>
-                    <span class="skill-tag">Mastering</span>
-                    <span class="skill-tag">DAW (Pro Tools/Ableton)</span>
+                
+                <!-- Music & Production Skills -->
+                <div class="skill-category">
+                    <h3 data-en="Music & Production" data-hu="Zene & Produkció">Music & Production</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Audio Engineering</span>
+                        <span class="skill-tag">Music Production</span>
+                        <span class="skill-tag">Mixing</span>
+                        <span class="skill-tag">Mastering</span>
+                        <span class="skill-tag">DAW (Pro Tools/Ableton)</span>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Other Skills -->
-            <div class="skill-category">
-                <h3 data-en="Other Skills" data-hu="Egyéb Képességek">Other Skills</h3>
-                <div class="skills-tags">
-                    <span class="skill-tag">Problem Solving</span>
-                    <span class="skill-tag">Teamwork</span>
-                    <span class="skill-tag">Project Management</span>
-                    <span class="skill-tag">Creative Thinking</span>
+                
+                <!-- Other Skills -->
+                <div class="skill-category">
+                    <h3 data-en="Other Skills" data-hu="Egyéb Képességek">Other Skills</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Teamwork</span>
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">Creative Thinking</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -602,21 +618,23 @@
     
     <!-- Contact Section -->
     <section id="contact">
-        <h2 data-en="Contact" data-hu="Kapcsolat">Contact</h2>
-        <p data-en="Let's connect! Feel free to reach out through any of these platforms." 
-           data-hu="Lépjünk kapcsolatba! Bátran keress meg ezeken a platformokon.">
-            Let's connect! Feel free to reach out through any of these platforms.
-        </p>
-        <div class="social-links">
-            <a href="https://www.instagram.com/levente_jordan/" target="_blank" class="social-link" title="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://github.com/TorinoFiucci" target="_blank" class="social-link" title="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="mailto:leevee67@gmail.com" class="social-link" title="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
+        <div class="section-content">
+            <h2 data-en="Contact" data-hu="Kapcsolat">Contact</h2>
+            <p data-en="Let's connect! Feel free to reach out through any of these platforms." 
+               data-hu="Lépjünk kapcsolatba! Bátran keress meg ezeken a platformokon.">
+                Let's connect! Feel free to reach out through any of these platforms.
+            </p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/levente_jordan/" target="_blank" class="social-link" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/TorinoFiucci" target="_blank" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:leevee67@gmail.com" class="social-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
         </div>
     </section>
     
@@ -700,4 +718,3 @@
     </script>
 </body>
 </html>
-
