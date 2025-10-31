@@ -67,11 +67,12 @@
             background-size: 50px 50px;
             z-index: 0;
             animation: gridMove 20s linear infinite;
+            will-change: transform;
         }
         
         @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(50px, 50px, 0); }
         }
         
         /* Gradient Orbs Background */
@@ -1049,22 +1050,29 @@
         
         window.addEventListener('scroll', updateTextColors, { passive: true });
         
-        // Smooth mouse movement parallax
+        // Smooth mouse movement parallax with throttling
+        let mouseMoveTicking = false;
         document.addEventListener('mousemove', (e) => {
-            const { clientX, clientY } = e;
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-            
-            const moveX = (clientX - centerX) / 50;
-            const moveY = (clientY - centerY) / 50;
-            
-            const profilePhoto = document.querySelector('.profile-photo');
-            if (profilePhoto) {
-                profilePhoto.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            if (!mouseMoveTicking) {
+                window.requestAnimationFrame(() => {
+                    const { clientX, clientY } = e;
+                    const centerX = window.innerWidth / 2;
+                    const centerY = window.innerHeight / 2;
+                    
+                    const moveX = (clientX - centerX) / 50;
+                    const moveY = (clientY - centerY) / 50;
+                    
+                    const profilePhoto = document.querySelector('.profile-photo');
+                    if (profilePhoto) {
+                        profilePhoto.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                    }
+                    mouseMoveTicking = false;
+                });
+                mouseMoveTicking = true;
             }
         });
         
-        // Add typing effect for code elements (optional enhancement)
+        // Staggered fade-in animation for skill tags
         function createCodeEffect() {
             const skillTags = document.querySelectorAll('.skill-tag');
             skillTags.forEach((tag, index) => {
