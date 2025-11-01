@@ -222,7 +222,7 @@
             display: inline-block;
             letter-spacing: -0.01em;
             /* Apply vibrant gradient color permanently */
-            color: var(--secondary-accent);
+            color: var(--secondary-accent); /* Fallback for browsers without gradient text support */
             background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -247,7 +247,7 @@
             margin-bottom: 15px;
             letter-spacing: -0.01em;
             /* Apply vibrant gradient color permanently */
-            color: var(--secondary-accent);
+            color: var(--secondary-accent); /* Fallback for browsers without gradient text support */
             background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -493,7 +493,7 @@
         
         .skill-category h3 {
             /* Apply vibrant gradient color permanently */
-            color: var(--secondary-accent);
+            color: var(--secondary-accent); /* Fallback for browsers without gradient text support */
             background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -620,7 +620,6 @@
             transition: transform 0.1s ease-out;
         }
         
-
         /* Code/Tech Elements */
         .code-accent {
             font-family: 'Courier New', monospace;
