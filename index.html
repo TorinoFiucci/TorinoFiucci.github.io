@@ -218,10 +218,15 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 30px;
-            color: var(--text-primary);
             position: relative;
             display: inline-block;
             letter-spacing: -0.01em;
+            /* Apply vibrant gradient color permanently */
+            color: var(--secondary-accent);
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         h2::after {
@@ -240,8 +245,13 @@
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 15px;
-            color: var(--text-primary);
             letter-spacing: -0.01em;
+            /* Apply vibrant gradient color permanently */
+            color: var(--secondary-accent);
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         p {
@@ -482,7 +492,12 @@
         }
         
         .skill-category h3 {
-            color: var(--text-primary);
+            /* Apply vibrant gradient color permanently */
+            color: var(--secondary-accent);
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 20px;
         }
         
@@ -1041,27 +1056,6 @@
         }
         
         window.addEventListener('scroll', requestTick, { passive: true });
-        
-        // Dynamic Text Color on Scroll with Intersection Observer
-        const textColorObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Add the class if ANY part of the heading is visible
-                    entry.target.classList.add('text-vibrant');
-                } else {
-                    // Remove the class ONLY if it's completely off-screen
-                    entry.target.classList.remove('text-vibrant');
-                }
-            });
-        }, {
-            // Trigger as soon as a single pixel is visible
-            threshold: 0.0 
-        });
-        
-        // Observe all h2 and h3 elements inside sections
-        document.querySelectorAll('section h2, section h3').forEach(heading => {
-            textColorObserver.observe(heading);
-        });
         // Smooth mouse movement parallax with cached element and throttling
         let mouseMoveTicking = false;
         let profilePhoto;
