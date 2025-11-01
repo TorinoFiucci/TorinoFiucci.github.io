@@ -620,26 +620,7 @@
             transition: transform 0.1s ease-out;
         }
         
-        /* Dynamic Text Color Classes */
-        .text-light {
-            color: var(--text-primary) !important;
-        }
-        
-        .text-vibrant {
-            color: var(--secondary-accent); /* Fallback color */
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        /* Fallback for browsers that don't support background-clip */
-        @supports not (background-clip: text) {
-            .text-vibrant {
-                color: var(--secondary-accent);
-            }
-        }
-        
+
         /* Code/Tech Elements */
         .code-accent {
             font-family: 'Courier New', monospace;
