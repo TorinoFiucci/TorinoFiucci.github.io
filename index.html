@@ -1045,21 +1045,17 @@
         // Dynamic Text Color on Scroll with Intersection Observer
         const textColorObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                // Check if the heading is intersecting
                 if (entry.isIntersecting) {
-                    // Add the class directly to the heading
+                    // Add the class if ANY part of the heading is visible
                     entry.target.classList.add('text-vibrant');
                 } else {
-                    // Remove the class directly from the heading
+                    // Remove the class ONLY if it's completely off-screen
                     entry.target.classList.remove('text-vibrant');
                 }
             });
         }, {
-            // Trigger when 50% of the heading itself is visible
-            threshold: 0.5, 
-            // Shrinks the "viewport" by 10% on top and bottom
-            // This ensures the heading is nicely in view before changing color
-            rootMargin: '-10% 0px -10% 0px' 
+            // Trigger as soon as a single pixel is visible
+            threshold: 0.0 
         });
         
         // Observe all h2 and h3 elements inside sections
@@ -1119,6 +1115,7 @@
     </script>
 </body>
 </html>
+
 
 
 
