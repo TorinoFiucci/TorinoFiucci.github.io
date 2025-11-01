@@ -973,6 +973,8 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Remove focus from the link after clicking to prevent it from staying highlighted
+                    this.blur();
                 }
             });
         });
