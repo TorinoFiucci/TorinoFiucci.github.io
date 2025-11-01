@@ -1043,25 +1043,29 @@
         window.addEventListener('scroll', requestTick, { passive: true });
         
         // Dynamic Text Color on Scroll with Intersection Observer
-        const textColorObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const headings = entry.target.querySelectorAll('h2, h3');
-                if (entry.isIntersecting) {
-                    headings.forEach(heading => heading.classList.add('text-vibrant'));
-                } else {
-                    headings.forEach(heading => heading.classList.remove('text-vibrant'));
-                }
-            });
-        }, {
-            threshold: [0.3, 0.7],
-            rootMargin: '-10% 0px'
-        });
-        
-        // Observe sections for text color changes
-        document.querySelectorAll('section').forEach(section => {
-            textColorObserver.observe(section);
-        });
-        
+        const textColorObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Check if the heading is intersecting
+                if (entry.isIntersecting) {
+                    // Add the class directly to the heading
+                    entry.target.classList.add('text-vibrant');
+                } else {
+                    // Remove the class directly from the heading
+                    entry.target.classList.remove('text-vibrant');
+                }
+            });
+        }, {
+            // Trigger when 50% of the heading itself is visible
+            threshold: 0.5, 
+            // Shrinks the "viewport" by 10% on top and bottom
+            // This ensures the heading is nicely in view before changing color
+            rootMargin: '-10% 0px -10% 0px' 
+        });
+        
+        // Observe all h2 and h3 elements inside sections
+        document.querySelectorAll('section h2, section h3').forEach(heading => {
+            textColorObserver.observe(heading);
+        });
         // Smooth mouse movement parallax with cached element and throttling
         let mouseMoveTicking = false;
         let profilePhoto;
@@ -1115,5 +1119,6 @@
     </script>
 </body>
 </html>
+
 
 
