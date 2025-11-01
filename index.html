@@ -139,6 +139,9 @@
             z-index: 999;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             border-bottom: 1px solid var(--border-subtle);
+            /* Ensure proper rendering isolation */
+            transform: translateZ(0);
+            will-change: background;
         }
         
         nav ul {
@@ -157,11 +160,15 @@
             transition: all 0.3s ease;
             font-weight: 500;
             position: relative;
+            /* Prevent color flashing during scroll */
+            will-change: auto;
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
         
         nav a:hover {
             background: var(--bg-card);
-            color: var(--text-primary);
+            color: var(--text-primary) !important;
             box-shadow: 0 4px 15px var(--glow);
         }
         
